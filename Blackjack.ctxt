@@ -4,6 +4,4 @@ comment1.params=
 comment1.target=Blackjack()
 comment2.params=
 comment2.target=void\ deal()
-comment3.params=h
-comment3.target=void\ hit(Hand)
-numComments=4
+numComments=3

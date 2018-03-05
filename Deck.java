@@ -29,7 +29,9 @@ public class Deck
     public ArrayList<Card> getDeck(){
         return cards;
     }
-    
+    /*public Card getCard(int index){
+        
+    }*/
     public Card drawRandCard(){
         Random rand = new Random();
         int r = rand.nextInt(cards.size());
@@ -37,7 +39,7 @@ public class Deck
         cards.remove(r);
         return c;
     }
-    
+
     public void drawRandCards(int num){
         System.out.println("You drew:");
         Random rand = new Random();

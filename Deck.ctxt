@@ -7,6 +7,7 @@ comment2.params=
 comment2.target=java.util.ArrayList\ getDeck()
 comment3.params=
 comment3.target=Card\ drawRandCard()
+comment3.text=public\ Card\ getCard(int\ index){\r\n\ \ \ \ \ \ \ \ \r\n}
 comment4.params=num
 comment4.target=void\ drawRandCards(int)
 comment5.params=num

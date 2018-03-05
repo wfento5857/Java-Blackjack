@@ -34,9 +34,4 @@ public class Blackjack
             }
         }
     }
-    
-    public void hit(Hand h){
-        h.add(deck.drawRandCard());
-    }
-    
 }
