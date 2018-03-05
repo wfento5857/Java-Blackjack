@@ -1,0 +1,7 @@
+#BlueJ class context
+comment0.target=easyBot
+comment1.params=
+comment1.target=easyBot()
+comment2.params=h\ d
+comment2.target=void\ getMove(Hand,\ Deck)
+numComments=3

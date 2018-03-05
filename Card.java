@@ -20,7 +20,28 @@ public class Card
         face = face1;
         suit = suit1;
     }
-
+    
+    public int convert(){
+        int fin = -1;
+        String f = faces[face];
+        switch(f){
+            case "Ace": fin = 11;
+            case "King": fin = 10;
+            case "Queen": fin = 10;
+            case "Jack": fin = 10;
+            case "Ten": fin = 10;
+            case "Nine": fin = 9;
+            case "Eight": fin = 8;
+            case "Seven": fin = 7;
+            case "Six": fin = 6;
+            case "Five": fin = 5;
+            case "Four": fin = 4;
+            case "Three": fin = 3;
+            case "Two": fin = 2;
+        }
+        return fin;
+    }
+    
     /**
      * An example of a method - replace this comment with your own
      *

@@ -14,10 +14,11 @@ public class playerInput extends Player
         boolean check = false;
         Scanner input = new Scanner(System.in);
         int r = -1; 
+        
         while (!check){
+            System.out.println("Your hand:\t"+h);
             System.out.println("Would you like to hit or pass? (0 to pass, 1 to hit)");
             r = input.nextInt();
-            
             if (r == 1){
                 h.add(d.drawRandCard());
             }
