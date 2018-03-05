@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=Hand
+comment1.params=
+comment1.target=Hand()
+comment2.params=c
+comment2.target=void\ add(Card)
+comment3.params=
+comment3.target=java.util.ArrayList\ getHand()
+numComments=4
