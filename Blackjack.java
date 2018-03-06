@@ -17,8 +17,7 @@ public class Blackjack
         p1 = new Hand(); 
         p2 = new Hand();
         p3 = new Hand(); 
-        p4 = new Hand();
-        
+        p4 = new Hand();       
     }
     
     public void deal(){
