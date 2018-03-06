@@ -8,17 +8,18 @@
 import java.util.*;
 public class easyBot extends Player
 {
-    // instance variables - replace the example below with your own
-    public easyBot(){}
-    void getMove(Hand h, Deck d){
+    public ArrayList<Card> Hand;
+    public easyBot(){
+        Hand = new ArrayList<Card>();
+    }
+    void getMove(Deck d){
         boolean check = false;
-        ArrayList<Card> hand = h.getHand();
-        int handValue = hand.get(0).convert() + hand.get(1).convert(); 
+        int handValue = Hand.get(0).convert() + Hand.get(1).convert(); 
         
         while (!check){
             if (handValue < 21){
                 Card c = d.drawRandCard();
-                h.add(c);
+                Hand.add(c);
                 handValue += c.convert();
             }
             else{
