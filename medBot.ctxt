@@ -2,6 +2,8 @@
 comment0.target=medBot
 comment1.params=
 comment1.target=medBot()
-comment2.params=h\ d
-comment2.target=void\ getMove(Hand,\ Deck)
-numComments=3
+comment2.params=d
+comment2.target=void\ getMove(Deck)
+comment3.params=c
+comment3.target=void\ addCard(Card)
+numComments=4

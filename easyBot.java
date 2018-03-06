@@ -14,8 +14,7 @@ public class easyBot extends Player
     }
     void getMove(Deck d){
         boolean check = false;
-        int handValue = Hand.get(0).convert() + Hand.get(1).convert(); 
-        
+        int handValue = Hand.get(0).convert() + Hand.get(1).convert();       
         while (!check){
             if (handValue < 21){
                 Card c = d.drawRandCard();
