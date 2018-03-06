@@ -1,0 +1,9 @@
+#BlueJ class context
+comment0.target=hardBot
+comment1.params=
+comment1.target=hardBot()
+comment2.params=d
+comment2.target=void\ getMove(Deck)
+comment3.params=c
+comment3.target=void\ addCard(Card)
+numComments=4
