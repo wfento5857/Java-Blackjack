@@ -9,8 +9,10 @@ import java.util.*;
 public class playerInput extends Player
 {
     public ArrayList<Card> Hand;
+    public int cash;
     public playerInput(){
         Hand = new ArrayList<Card>();
+        cash = 100;
     }
     void getMove(Deck d){
         boolean check = false;
@@ -35,4 +37,22 @@ public class playerInput extends Player
     void addCard(Card c){
         Hand.add(c);
     }
+    int getWager(){
+        Scanner input = new Scanner(System.in);
+        boolean check = false;
+        int fin = 0;
+        while(!check){
+            System.out.println("Wager?");
+            int w = input.nextInt();
+            input.nextLine();
+            if (w > cash){
+                System.out.println("ERROR: NO MONEY FOR BET");
+            }
+            else{
+                fin = w;
+            }
+        }
+        return fin;
+    }
+    void addMoney(int amt){}
 }

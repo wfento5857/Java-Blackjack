@@ -9,4 +9,6 @@ public abstract class Player
 {
     abstract void getMove(Deck d);
     abstract void addCard(Card c);
+    abstract int getWager();
+    abstract void addMoney(int amt);
 }
