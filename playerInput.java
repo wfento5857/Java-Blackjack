@@ -32,4 +32,7 @@ public class playerInput extends Player
             }
         }
     }
+    void addCard(Card c){
+        Hand.add(c);
+    }
 }

@@ -4,4 +4,6 @@ comment1.params=
 comment1.target=playerInput()
 comment2.params=d
 comment2.target=void\ getMove(Deck)
-numComments=3
+comment3.params=c
+comment3.target=void\ addCard(Card)
+numComments=4

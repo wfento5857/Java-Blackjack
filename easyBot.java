@@ -27,4 +27,7 @@ public class easyBot extends Player
             }
         }
     }
+    void addCard(Card c){
+        Hand.add(c);
+    }
 }
