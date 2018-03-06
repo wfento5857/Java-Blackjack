@@ -7,5 +7,6 @@
  */
 public abstract class Player
 {
-    abstract void getMove(Hand h, Deck d);
+    abstract void getMove(Deck d);
+    abstract void addCard(Card c);
 }

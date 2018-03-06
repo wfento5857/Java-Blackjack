@@ -2,6 +2,6 @@
 comment0.target=playerInput
 comment1.params=
 comment1.target=playerInput()
-comment2.params=h\ d
-comment2.target=void\ getMove(Hand,\ Deck)
+comment2.params=d
+comment2.target=void\ getMove(Deck)
 numComments=3
