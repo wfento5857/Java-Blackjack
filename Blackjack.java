@@ -9,7 +9,7 @@ import java.util.*;
 public class Blackjack
 {
     // instance variables - replace the example below with your own
-    public Player house,p1,p2,p3,p4;
+    private static Player house,p1,p2,p3,p4;
     public Deck deck;
     public Blackjack(){
         deck = new Deck();
@@ -31,6 +31,33 @@ public class Blackjack
     }
     
     public static void main (String args[]){
-        
+        System.out.println("Input: \n 1 for easy \n 2 for medium \n 3 for hard");
+        boolean check = false;
+        Scanner input = new Scanner(System.in);
+        while(!check){
+            int c = input.nextInt();
+            input.nextLine();
+            if (c == 1){
+                house = new easyBot();
+                p1 = new playerInput();
+                p2 = new easyBot();
+                p3 = new easyBot();
+                p4 = new easyBot();
+            }
+            else if (c == 2){
+                house = new medBot();
+                p1 = new playerInput();
+                p2 = new medBot();
+                p3 = new medBot();
+                p4 = new medBot();
+            }
+            else if (c == 3){
+                house = new hardBot();
+                p1 = new playerInput();
+                p2 = new hardBot();
+                p3 = new hardBot();
+                p4 = new hardBot();
+            }
+        }
     }
 }
