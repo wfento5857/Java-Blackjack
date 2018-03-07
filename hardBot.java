@@ -15,6 +15,7 @@ public class hardBot extends Player
         cash = 100;
         id = x;
     }
+
     void getMove(Deck d) {
         boolean check = false;
         int handValue = Hand.get(0).convert() + Hand.get(1).convert();
@@ -29,15 +30,27 @@ public class hardBot extends Player
             }
         }
     }
+
+    public int getHandValue() {
+        int fin = 0;
+        for (int i = 0; i < Hand.size(); i++){
+            fin += Hand.get(i).convert();
+        }
+        return fin;
+    }
+
     void addCard(Card c) {
         Hand.add(c);
     }
+
     int getWager() {
         return 10;
     }
+
     void addMoney(int amt) {
         cash += amt;
     }
+
     public String toString() {
         return "Player " + id + " (hardBot)";
     }
