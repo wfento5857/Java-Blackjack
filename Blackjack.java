@@ -8,7 +8,7 @@
 import java.util.*;
 public class Blackjack
 {
-    // instance variables - replace the example below with your own
+    // instance variables - replace the p4.getHandValue()ample below with your own
     private static Player house,p1,p2,p3,p4;
     public Deck deck;
     public Blackjack(){
@@ -16,7 +16,21 @@ public class Blackjack
     }
     
     public int checkWinner(){
-        if (p1.getHandValue() > 
+        int winner = -1;
+        if (p1.getHandValue() > house.getHandValue() && p1.getHandValue() > p2.getHandValue() && p1.getHandValue() > p3.getHandValue() && p1.getHandValue() > p4.getHandValue()){
+            if (p1.getHandValue() <= 21){
+                winner = 1;
+            }
+            else winner = -1;
+        }
+        else if (house.getHandValue() > p1.getHandValue() && house.getHandValue() > p2.getHandValue() && house.getHandValue() > p3.getHandValue() && house.getHandValue() > p4.getHandValue()){
+            if (house.getHandValue() <= 21) winner = 0;
+            else winner = -1;
+        }
+        else if (p2.getHandValue() > house.getHandValue() && p2.getHandValue() > p1.getHandValue() && p2.getHandValue() > p3.getHandValue() && p2.getHandValue() > p4.getHandValue()){
+            
+        }
+        
     }
     
     public Player Blackjack(){

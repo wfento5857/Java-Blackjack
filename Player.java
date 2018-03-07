@@ -11,4 +11,5 @@ public abstract class Player
     abstract void addCard(Card c);
     abstract int getWager();
     abstract void addMoney(int amt);
+    abstract int getHandValue();
 }
