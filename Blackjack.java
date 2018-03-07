@@ -14,7 +14,7 @@ public class Blackjack
     public Blackjack(){
         deck = new Deck();
     }
-    
+
     public int checkWinner(){
         int winner = -1;
         if (p1.getHandValue() > house.getHandValue() && p1.getHandValue() > p2.getHandValue() && p1.getHandValue() > p3.getHandValue() && p1.getHandValue() > p4.getHandValue()){
@@ -28,15 +28,24 @@ public class Blackjack
             else winner = -1;
         }
         else if (p2.getHandValue() > house.getHandValue() && p2.getHandValue() > p1.getHandValue() && p2.getHandValue() > p3.getHandValue() && p2.getHandValue() > p4.getHandValue()){
-            
+            if(p2.getHandValue() <= 21) winner = 2;
+            else winner = -1;            
         }
-        
+        else if(p3.getHandValue() > house.getHandValue() && p3.getHandValue() > p1.getHandValue() && p3.getHandValue() > p2.getHandValue() && p3.getHandValue() > p4.getHandValue()){
+            if(p3.getHandValue() <= 21) winner = 3;
+            else winner = -1;
+        }
+        else if(p4.getHandValue() > house.getHandValue() && p4.getHandValue() >  p1.getHandValue() && p4.getHandValue() > p2.getHandValue() && p4.getHandValue() > p3.getHandValue()){
+            if(p4.getHandValue() <= 21) winner = 4;
+            else winner = -1;
+        }
+        return winner;
     }
-    
+
     public Player Blackjack(){
         deal();
     }
-    
+
     public void deal(){
         Random rand = new Random();
         for (int i = 0; i < 2; i++){
@@ -51,7 +60,7 @@ public class Blackjack
             }
         }
     }
-    
+
     public static void main (String args[]){
         System.out.println("Input: \n 1 for easy \n 2 for medium \n 3 for hard");
         boolean check = false;
@@ -81,6 +90,6 @@ public class Blackjack
                 p4 = new hardBot(4);
             }
         }
-        
+
     }
 }
