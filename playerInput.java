@@ -56,6 +56,13 @@ public class playerInput extends Player
         return fin;
     }
     void addMoney(int amt){}
+    public int getHandValue(){
+        int fin = 0;
+        for (int i = 0; i < Hand.size(); i++){
+            fin += Hand.get(i).convert();
+        }
+        return fin;
+    }
     public String toString(){
         return "Player " + id + " (player)";
     }

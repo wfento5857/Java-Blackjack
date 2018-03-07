@@ -16,6 +16,7 @@ public class Blackjack
     }
     
     public Player Blackjack(){
+        deal();
         
     }
     
