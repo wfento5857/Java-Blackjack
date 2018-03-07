@@ -9,6 +9,7 @@ import java.util.*;
 public class medBot extends Player
 {
     public ArrayList<Card> Hand;
+    public int cash;
     public medBot(){
         Hand = new ArrayList<Card>();
     }
@@ -28,5 +29,11 @@ public class medBot extends Player
     } 
     void addCard(Card c){
         Hand.add(c);
+    }
+    int getWager() {
+        return 15;
+    }
+    void addMoney(int amt) {
+        cash += amt;
     }
 }

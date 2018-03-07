@@ -9,6 +9,7 @@ import java.util.*;
 public class hardBot extends Player
 {
     public ArrayList<Card> Hand;
+    public int cash;
     public hardBot() {
         Hand = new ArrayList<Card>();
     }
@@ -28,5 +29,11 @@ public class hardBot extends Player
     }
     void addCard(Card c) {
         Hand.add(c);
+    }
+    int getWager() {
+        return 10;
+    }
+    void addMoney(int amt) {
+        cash += amt;
     }
 }
