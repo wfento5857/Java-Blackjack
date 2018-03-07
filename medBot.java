@@ -29,6 +29,13 @@ public class medBot extends Player
             }
         }
     } 
+    public int getHandValue(){
+        int fin = 0;
+        for (int i = 0; i < Hand.size(); i++){
+            fin += Hand.get(i).convert();
+        }
+        return fin;
+    }
     void addCard(Card c){
         Hand.add(c);
     }

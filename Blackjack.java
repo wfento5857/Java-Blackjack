@@ -15,6 +15,10 @@ public class Blackjack
         deck = new Deck();
     }
     
+    public int checkWinner(){
+        if (p1.getHandValue() > 
+    }
+    
     public Player Blackjack(){
         deal();
     }
