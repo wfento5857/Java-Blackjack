@@ -17,7 +17,6 @@ public class Blackjack
     
     public Player Blackjack(){
         deal();
-        
     }
     
     public void deal(){
