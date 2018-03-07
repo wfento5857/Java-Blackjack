@@ -15,6 +15,10 @@ public class Blackjack
         deck = new Deck();
     }
     
+    public Player Blackjack(){
+        
+    }
+    
     public void deal(){
         Random rand = new Random();
         for (int i = 0; i < 2; i++){
@@ -38,26 +42,27 @@ public class Blackjack
             int c = input.nextInt();
             input.nextLine();
             if (c == 1){
-                house = new easyBot();
-                p1 = new playerInput();
-                p2 = new easyBot();
-                p3 = new easyBot();
-                p4 = new easyBot();
+                house = new easyBot(0);
+                p1 = new playerInput(1);
+                p2 = new easyBot(2);
+                p3 = new easyBot(3);
+                p4 = new easyBot(4);
             }
             else if (c == 2){
-                house = new medBot();
-                p1 = new playerInput();
-                p2 = new medBot();
-                p3 = new medBot();
-                p4 = new medBot();
+                house = new medBot(0);
+                p1 = new playerInput(1);
+                p2 = new medBot(2);
+                p3 = new medBot(3);
+                p4 = new medBot(4);
             }
             else if (c == 3){
-                house = new hardBot();
-                p1 = new playerInput();
-                p2 = new hardBot();
-                p3 = new hardBot();
-                p4 = new hardBot();
+                house = new hardBot(0);
+                p1 = new playerInput(1);
+                p2 = new hardBot(2);
+                p3 = new hardBot(3);
+                p4 = new hardBot(4);
             }
         }
+        
     }
 }

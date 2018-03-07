@@ -9,10 +9,11 @@ import java.util.*;
 public class playerInput extends Player
 {
     public ArrayList<Card> Hand;
-    public int cash;
-    public playerInput(){
+    public int cash, id;
+    public playerInput(int x){
         Hand = new ArrayList<Card>();
         cash = 100;
+        id=x;
     }
     void getMove(Deck d){
         boolean check = false;
@@ -55,4 +56,7 @@ public class playerInput extends Player
         return fin;
     }
     void addMoney(int amt){}
+    public String toString(){
+        return "Player " + id + " (player)";
+    }
 }

@@ -9,10 +9,12 @@ import java.util.*;
 public class easyBot extends Player
 {
     public ArrayList<Card> Hand;
-    public int cash;
-    public easyBot(){
+    public int cash, id;
+    
+    public easyBot(int x){
         Hand = new ArrayList<Card>();
         cash = 100;
+        id = x;
     }
     void getMove(Deck d){
         cash -= 5;
@@ -37,5 +39,8 @@ public class easyBot extends Player
     }
     void addMoney(int amt){
         cash += amt;
+    }
+    public String toString(){
+        return "Player " + id + " (easy bot)";
     }
 }
