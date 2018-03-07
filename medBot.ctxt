@@ -1,7 +1,7 @@
 #BlueJ class context
 comment0.target=medBot
-comment1.params=
-comment1.target=medBot()
+comment1.params=x
+comment1.target=medBot(int)
 comment2.params=d
 comment2.target=void\ getMove(Deck)
 comment3.params=c
@@ -10,4 +10,6 @@ comment4.params=
 comment4.target=int\ getWager()
 comment5.params=amt
 comment5.target=void\ addMoney(int)
-numComments=6
+comment6.params=
+comment6.target=java.lang.String\ toString()
+numComments=7

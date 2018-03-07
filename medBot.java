@@ -9,9 +9,11 @@ import java.util.*;
 public class medBot extends Player
 {
     public ArrayList<Card> Hand;
-    public int cash;
-    public medBot(){
+    public int cash, id;
+    public medBot(int x){
         Hand = new ArrayList<Card>();
+        cash = 100;
+        id = x;
     }
     void getMove(Deck d) {
         boolean check = false;
@@ -35,5 +37,8 @@ public class medBot extends Player
     }
     void addMoney(int amt) {
         cash += amt;
+    }
+    public String toString() {
+        return "Player " + id + " (medBot)";
     }
 }
