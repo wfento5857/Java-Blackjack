@@ -33,6 +33,7 @@ public class medBot extends Player
         else{
             System.out.println(id + " OUT OF MONEY");
         }
+        Hand.clear();
     } 
     int getHandValue(){
         int fin = 0;
@@ -40,6 +41,12 @@ public class medBot extends Player
             fin += Hand.get(i).convert();
         }
         return fin;
+    }
+    public int getCash(){
+        return cash;
+    }
+    public int getId(){
+        return id;
     }
     void addCard(Card c){
         Hand.add(c);

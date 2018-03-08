@@ -10,12 +10,12 @@ public class Blackjack
 {
     // instance variables - replace the p4.getHandValue()ample below with your own
     private static Player house,p1,p2,p3,p4;
-    public Deck deck;
+    public static Deck deck;
     public Blackjack(){
-        
+
     }
 
-    public int checkWinner(){
+    public static int checkWinner(){
         int winner = -1;
         if (p1.getHandValue() > house.getHandValue() && p1.getHandValue() > p2.getHandValue() && p1.getHandValue() > p3.getHandValue() && p1.getHandValue() > p4.getHandValue()){
             if (p1.getHandValue() <= 21){
@@ -42,8 +42,9 @@ public class Blackjack
         return winner;
     }
 
-    public Player Blackjack(){
+    public static Player Blackjack(){
         deck = new Deck();
+        
         deal();
         house.getMove(deck);
         p1.getMove(deck);
@@ -51,16 +52,32 @@ public class Blackjack
         p3.getMove(deck);
         p4.getMove(deck);
         int winner = checkWinner();
-        int cashPool = house.getWager() + p1.getWager() + p2.getWager() + p3.getWager + p4.getWager();
-        if (winner == 1){
-            p1.cash += cashPool;
+        Player win = new easyBot(-1);
+        int cashPool = house.getWager() + p1.getWager() + p2.getWager() + p3.getWager() + p4.getWager();
+        switch(winner){
+            case 0: 
+            house.addMoney(cashPool);
+            win = house;
+            case 1: 
+            p1.addMoney(cashPool);
+            win = p1;
+            case 2: 
+            p2.addMoney(cashPool);
+            win = p2;
+            case 3: 
+            p3.addMoney(cashPool);
+            win = p3;
+            case 4:
+            p4.addMoney(cashPool);
+            win = p4;
         }
+        return win;
     }
 
-    public void deal(){
+    public static void deal(){
         Random rand = new Random();
-        for (int i = 0; i < 2; i++){
-            for (int j = 0; j < 5; j++){
+        for (int i = 0; i < 1; i++){
+            for (int j = 0; j < 4; j++){
                 switch(j){
                     case 0: house.addCard(deck.drawRandCard());
                     case 1: p1.addCard(deck.drawRandCard());
@@ -85,6 +102,7 @@ public class Blackjack
                 p2 = new easyBot(2);
                 p3 = new easyBot(3);
                 p4 = new easyBot(4);
+                check = true;
             }
             else if (c == 2){
                 house = new medBot(0);
@@ -92,6 +110,7 @@ public class Blackjack
                 p2 = new medBot(2);
                 p3 = new medBot(3);
                 p4 = new medBot(4);
+                check = true;
             }
             else if (c == 3){
                 house = new hardBot(0);
@@ -99,8 +118,17 @@ public class Blackjack
                 p2 = new hardBot(2);
                 p3 = new hardBot(3);
                 p4 = new hardBot(4);
+                check = true;
             }
         }
-
+        boolean playAgain = true;
+        do{
+            Player p = Blackjack();
+            System.out.println("Player " + p.getId() + " has won.");
+            System.out.println("Would you like to play again? You have $" + p1.getCash() + "\ny for yes, n for no.");
+            String z = input.nextLine();
+            if (z.equals("y")) playAgain = true;
+            else playAgain = false;
+        }   while(playAgain);
     }
 }

@@ -34,6 +34,7 @@ public class easyBot extends Player
             }
         }
         else{System.out.println(id + " OUT OF MONEY");}
+        Hand.clear();
     }
 
     int getHandValue() {
@@ -43,7 +44,12 @@ public class easyBot extends Player
         }
         return fin;
     }
-
+    public int getCash(){
+        return cash;
+    }
+    public int getId(){
+        return id;
+    }
     void addCard(Card c){
         Hand.add(c);
     }

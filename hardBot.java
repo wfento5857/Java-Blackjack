@@ -32,8 +32,14 @@ public class hardBot extends Player
             }
         }
         else{System.out.println(id + " OUT OF MONEY");}
+        Hand.clear();
     }
-
+    public int getCash(){
+        return cash;
+    }
+    public int getId(){
+        return id;
+    }
     int getHandValue() {
         int fin = 0;
         for (int i = 0; i < Hand.size(); i++){

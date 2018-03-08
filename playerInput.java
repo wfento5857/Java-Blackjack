@@ -19,7 +19,7 @@ public class playerInput extends Player
         boolean check = false;
         Scanner input = new Scanner(System.in);
         int r = -1; 
-        if (cash >= 0){
+        if (cash > 0){
             while (!check){
                 System.out.println("Your hand:\t"+Hand);
                 System.out.println("Would you like to hit or pass? (0 to pass, 1 to hit)");
@@ -34,11 +34,11 @@ public class playerInput extends Player
                     System.out.println("INCORRECT INPUT");
                 }
             }
-            getWager();
         }
         else{
             System.out.println("NO MONEY");
         }
+        Hand.clear();
     }
     void addCard(Card c){
         Hand.add(c);
@@ -55,13 +55,17 @@ public class playerInput extends Player
                 System.out.println("ERROR: NO MONEY FOR BET");
             }
             else{
+                System.out.println("YOUR BET HAS BEEN ACCEPTED");
                 fin = w;
+                check = true;
             }
         }
         cash -= fin;
         return fin;
     }
-    void addMoney(int amt){}
+    void addMoney(int amt){
+        cash += amt;
+    }
     public int getHandValue(){
         int fin = 0;
         for (int i = 0; i < Hand.size(); i++){
@@ -71,5 +75,11 @@ public class playerInput extends Player
     }
     public String toString(){
         return "Player " + id + " (player)";
+    }
+    public int getCash(){
+        return cash;
+    }
+    public int getId(){
+        return id;
     }
 }
