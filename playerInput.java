@@ -19,20 +19,25 @@ public class playerInput extends Player
         boolean check = false;
         Scanner input = new Scanner(System.in);
         int r = -1; 
-        
-        while (!check){
-            System.out.println("Your hand:\t"+Hand);
-            System.out.println("Would you like to hit or pass? (0 to pass, 1 to hit)");
-            r = input.nextInt();
-            if (r == 1){
-                Hand.add(d.drawRandCard());
+        if (cash >= 0){
+            while (!check){
+                System.out.println("Your hand:\t"+Hand);
+                System.out.println("Would you like to hit or pass? (0 to pass, 1 to hit)");
+                r = input.nextInt();
+                if (r == 1){
+                    Hand.add(d.drawRandCard());
+                }
+                else if (r == 0){
+                    check = true;
+                }
+                else{
+                    System.out.println("INCORRECT INPUT");
+                }
             }
-            else if (r == 0){
-                check = true;
-            }
-            else{
-                System.out.println("INCORRECT INPUT");
-            }
+            getWager();
+        }
+        else{
+            System.out.println("NO MONEY");
         }
     }
     void addCard(Card c){
@@ -53,6 +58,7 @@ public class playerInput extends Player
                 fin = w;
             }
         }
+        cash -= fin;
         return fin;
     }
     void addMoney(int amt){}

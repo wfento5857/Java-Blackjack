@@ -12,7 +12,7 @@ public class Blackjack
     private static Player house,p1,p2,p3,p4;
     public Deck deck;
     public Blackjack(){
-        deck = new Deck();
+        
     }
 
     public int checkWinner(){
@@ -43,7 +43,18 @@ public class Blackjack
     }
 
     public Player Blackjack(){
+        deck = new Deck();
         deal();
+        house.getMove(deck);
+        p1.getMove(deck);
+        p2.getMove(deck);
+        p3.getMove(deck);
+        p4.getMove(deck);
+        int winner = checkWinner();
+        int cashPool = house.getWager() + p1.getWager() + p2.getWager() + p3.getWager + p4.getWager();
+        if (winner == 1){
+            p1.cash += cashPool;
+        }
     }
 
     public void deal(){
