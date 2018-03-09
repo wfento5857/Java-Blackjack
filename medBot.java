@@ -33,6 +33,7 @@ public class medBot extends Player
         else{
             System.out.println(id + " OUT OF MONEY");
         }
+        System.out.println(Hand);
         Hand.clear();
     } 
     int getHandValue(){

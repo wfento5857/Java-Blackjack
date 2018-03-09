@@ -56,11 +56,11 @@ public class playerInput extends Player
             }
             else{
                 System.out.println("YOUR BET HAS BEEN ACCEPTED");
+                cash -= w;
                 fin = w;
                 check = true;
             }
         }
-        cash -= fin;
         return fin;
     }
     void addMoney(int amt){

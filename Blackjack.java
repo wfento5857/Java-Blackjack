@@ -23,7 +23,7 @@ public class Blackjack
             }
             else winner = -1;
         }
-        else if (house.getHandValue() > p1.getHandValue() && house.getHandValue() > p2.getHandValue() && house.getHandValue() > p3.getHandValue() && house.getHandValue() > p4.getHandValue()){
+        else if (house.getHandValue() >= p1.getHandValue() && house.getHandValue() >= p2.getHandValue() && house.getHandValue() >= p3.getHandValue() && house.getHandValue() >= p4.getHandValue()){
             if (house.getHandValue() <= 21) winner = 0;
             else winner = -1;
         }
@@ -44,31 +44,38 @@ public class Blackjack
 
     public static Player Blackjack(){
         deck = new Deck();
-        
         deal();
+        Player win = new easyBot(-1);
+        int c1 = p1.getCash();
+        int c2 = p2.getCash();
+        int c3 = p3.getCash();
+        int c4 = p4.getCash();
+        int w1 = p1.getWager();
+        int w2 = p2.getWager();
+        int w3 = p3.getWager();
+        int w4 = p4.getWager();
         house.getMove(deck);
         p1.getMove(deck);
-        p2.getMove(deck);
-        p3.getMove(deck);
-        p4.getMove(deck);
+        if (c2 > w2){
+            p2.getMove(deck);
+        }
+        if (c3 > w3){
+            p3.getMove(deck);
+        }
+        if (c4 > w4){
+            p4.getMove(deck);
+        }
         int winner = checkWinner();
-        Player win = new easyBot(-1);
-        int cashPool = house.getWager() + p1.getWager() + p2.getWager() + p3.getWager() + p4.getWager();
-        switch(winner){
-            case 0: 
-            house.addMoney(cashPool);
+        switch (winner){
+            case 0:
             win = house;
-            case 1: 
-            p1.addMoney(cashPool);
+            case 1:
             win = p1;
-            case 2: 
-            p2.addMoney(cashPool);
+            case 2:
             win = p2;
-            case 3: 
-            p3.addMoney(cashPool);
+            case 3:
             win = p3;
             case 4:
-            p4.addMoney(cashPool);
             win = p4;
         }
         return win;
@@ -127,7 +134,7 @@ public class Blackjack
             System.out.println("Player " + p.getId() + " has won.");
             System.out.println("Would you like to play again? You have $" + p1.getCash() + "\ny for yes, n for no.");
             String z = input.nextLine();
-            if (z.equals("y")) playAgain = true;
+            if (z.equalsIgnoreCase("y")) playAgain = true;
             else playAgain = false;
         }   while(playAgain);
     }

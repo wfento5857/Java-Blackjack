@@ -18,22 +18,22 @@ public class easyBot extends Player
     }
 
     void getMove(Deck d){
-        cash -= 5;
         boolean check = false;
-        int handValue = getHandValue();
-        if (cash >= 0){
+        if (cash > 0){
             while (!check){
+                int handValue = getHandValue();
                 if (handValue < 21){
                     Card c = d.drawRandCard();
                     Hand.add(c);
-                    handValue += c.convert();
                 }
-                else{
+                else if (handValue > 21){
+                    Hand.clear();
                     check = true;
                 }
             }
         }
         else{System.out.println(id + " OUT OF MONEY");}
+        System.out.println(Hand);
         Hand.clear();
     }
 
