@@ -26,6 +26,9 @@ public class easyBot extends Player
                     Card c = d.drawRandCard();
                     Hand.add(c);
                 }
+                else if (handValue == 21){
+                    check = true;
+                }
                 else if (handValue > 21){
                     Hand.clear();
                     check = true;
@@ -34,7 +37,6 @@ public class easyBot extends Player
         }
         else{System.out.println(id + " OUT OF MONEY");}
         System.out.println(Hand);
-        Hand.clear();
     }
 
     int getHandValue() {
@@ -53,7 +55,9 @@ public class easyBot extends Player
     void addCard(Card c){
         Hand.add(c);
     }
-
+    void clearHand(){
+        Hand.clear();
+    }
     int getWager(){
         cash -= 25;
         return 25;

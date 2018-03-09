@@ -38,7 +38,6 @@ public class playerInput extends Player
         else{
             System.out.println("NO MONEY");
         }
-        Hand.clear();
     }
     void addCard(Card c){
         Hand.add(c);

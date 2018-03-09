@@ -17,27 +17,30 @@ public class Blackjack
 
     public static int checkWinner(){
         int winner = -1;
+        System.out.println(p1.getHandValue());
+        System.out.println(house.getHandValue());
+        System.out.println(p2.getHandValue());
+        System.out.println(p3.getHandValue());
+        System.out.println(p4.getHandValue());
         if (p1.getHandValue() > house.getHandValue() && p1.getHandValue() > p2.getHandValue() && p1.getHandValue() > p3.getHandValue() && p1.getHandValue() > p4.getHandValue()){
-            if (p1.getHandValue() <= 21){
-                winner = 1;
-            }
-            else winner = -1;
+            winner = 1;
+            
         }
         else if (house.getHandValue() >= p1.getHandValue() && house.getHandValue() >= p2.getHandValue() && house.getHandValue() >= p3.getHandValue() && house.getHandValue() >= p4.getHandValue()){
-            if (house.getHandValue() <= 21) winner = 0;
-            else winner = -1;
+            winner = 0;
+            
         }
         else if (p2.getHandValue() > house.getHandValue() && p2.getHandValue() > p1.getHandValue() && p2.getHandValue() > p3.getHandValue() && p2.getHandValue() > p4.getHandValue()){
-            if(p2.getHandValue() <= 21) winner = 2;
-            else winner = -1;            
+            winner = 2;
+            
         }
         else if(p3.getHandValue() > house.getHandValue() && p3.getHandValue() > p1.getHandValue() && p3.getHandValue() > p2.getHandValue() && p3.getHandValue() > p4.getHandValue()){
-            if(p3.getHandValue() <= 21) winner = 3;
-            else winner = -1;
+            winner = 3;
+            
         }
         else if(p4.getHandValue() > house.getHandValue() && p4.getHandValue() >  p1.getHandValue() && p4.getHandValue() > p2.getHandValue() && p4.getHandValue() > p3.getHandValue()){
-            if(p4.getHandValue() <= 21) winner = 4;
-            else winner = -1;
+            winner = 4;
+            
         }
         return winner;
     }
