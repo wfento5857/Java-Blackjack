@@ -24,29 +24,29 @@ public class Blackjack
         System.out.println(p4.getHandValue());
         if (p1.getHandValue() > house.getHandValue() && p1.getHandValue() > p2.getHandValue() && p1.getHandValue() > p3.getHandValue() && p1.getHandValue() > p4.getHandValue()){
             winner = 1;
-            
         }
         else if (house.getHandValue() >= p1.getHandValue() && house.getHandValue() >= p2.getHandValue() && house.getHandValue() >= p3.getHandValue() && house.getHandValue() >= p4.getHandValue()){
             winner = 0;
-            
         }
         else if (p2.getHandValue() > house.getHandValue() && p2.getHandValue() > p1.getHandValue() && p2.getHandValue() > p3.getHandValue() && p2.getHandValue() > p4.getHandValue()){
             winner = 2;
-            
         }
         else if(p3.getHandValue() > house.getHandValue() && p3.getHandValue() > p1.getHandValue() && p3.getHandValue() > p2.getHandValue() && p3.getHandValue() > p4.getHandValue()){
             winner = 3;
-            
         }
         else if(p4.getHandValue() > house.getHandValue() && p4.getHandValue() >  p1.getHandValue() && p4.getHandValue() > p2.getHandValue() && p4.getHandValue() > p3.getHandValue()){
             winner = 4;
-            
         }
         return winner;
     }
 
-    public static Player Blackjack(){
+    public static int Blackjack(){
         deck = new Deck();
+        p1.clearHand();
+        p2.clearHand();
+        p3.clearHand();
+        p4.clearHand();
+        house.clearHand();
         deal();
         Player win = new easyBot(-1);
         int c1 = p1.getCash();
@@ -57,6 +57,7 @@ public class Blackjack
         int w2 = p2.getWager();
         int w3 = p3.getWager();
         int w4 = p4.getWager();
+        int totalCash = w1 + w2 + w3 + w4;
         house.getMove(deck);
         p1.getMove(deck);
         if (c2 > w2){
@@ -70,18 +71,12 @@ public class Blackjack
         }
         int winner = checkWinner();
         switch (winner){
-            case 0:
-            win = house;
-            case 1:
-            win = p1;
-            case 2:
-            win = p2;
-            case 3:
-            win = p3;
-            case 4:
-            win = p4;
+            case 1: p1.addMoney(totalCash);
+            case 2: p2.addMoney(totalCash);
+            case 3: p3.addMoney(totalCash);
+            case 4: p4.addMoney(totalCash);
         }
-        return win;
+        return winner;
     }
 
     public static void deal(){
@@ -133,8 +128,8 @@ public class Blackjack
         }
         boolean playAgain = true;
         do{
-            Player p = Blackjack();
-            System.out.println("Player " + p.getId() + " has won.");
+            int p = Blackjack();
+            System.out.println("Player " + p + " has won.");
             System.out.println("Would you like to play again? You have $" + p1.getCash() + "\ny for yes, n for no.");
             String z = input.nextLine();
             if (z.equalsIgnoreCase("y")) playAgain = true;

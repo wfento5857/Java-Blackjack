@@ -15,6 +15,9 @@ public class medBot extends Player
         cash = 100;
         id = x;
     }
+    void clearHand(){
+        Hand.clear();
+    }   
     void getMove(Deck d) {
         boolean check = false;
         int handValue = getHandValue();

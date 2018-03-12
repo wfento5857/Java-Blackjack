@@ -18,4 +18,5 @@ public abstract class Player
     abstract int getHandValue();
     abstract int getCash();
     abstract int getId();
+    abstract void clearHand();
 }
