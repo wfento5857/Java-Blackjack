@@ -56,8 +56,15 @@ public class medBot extends Player
         Hand.add(c);
     }
     int getWager() {
-        cash -= 15;
-        return 15 + 5;
+        int wager = 15;
+        if (wager+5 >= cash){
+            cash -= wager;
+        }
+        else if (wager+5 < cash){
+            wager = cash;
+            cash -= wager;
+        }
+        return wager + 5;
     }
     void addMoney(int amt) {
         cash += amt;
