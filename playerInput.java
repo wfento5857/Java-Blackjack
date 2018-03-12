@@ -71,7 +71,7 @@ public class playerInput extends Player
             }
         }
         
-        return fin;
+        return fin + 5;
     }
     void addMoney(int amt){
         cash += amt;

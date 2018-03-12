@@ -60,7 +60,7 @@ public class easyBot extends Player
     }
     int getWager(){
         cash -= 25;
-        return 25;
+        return 25 + 5;
     }
 
     void addMoney(int amt){

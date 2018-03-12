@@ -20,24 +20,24 @@ public class medBot extends Player
     }   
     void getMove(Deck d) {
         boolean check = false;
-        int handValue = getHandValue();
-        if (cash >= 0){
-            while(!check) {
-                if(handValue <= 18) {
+        if (cash > 0){
+            while (!check){
+                int handValue = getHandValue();
+                if (handValue <= 18){
                     Card c = d.drawRandCard();
                     Hand.add(c);
-                    handValue += c.convert();
                 }
-                else {
+                else if (handValue > 18 && handValue <= 21){
+                    check = true;
+                }
+                else if (handValue > 21){
+                    Hand.clear();
                     check = true;
                 }
             }
         }
-        else{
-            System.out.println(id + " OUT OF MONEY");
-        }
+        else{System.out.println(id + " OUT OF MONEY");}
         System.out.println(Hand);
-        Hand.clear();
     } 
     int getHandValue(){
         int fin = 0;
@@ -57,7 +57,7 @@ public class medBot extends Player
     }
     int getWager() {
         cash -= 15;
-        return 15;
+        return 15 + 5;
     }
     void addMoney(int amt) {
         cash += amt;
