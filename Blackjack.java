@@ -48,18 +48,29 @@ public class Blackjack
         p4.clearHand();
         house.clearHand();
         deal();
+        int c2 = p2.getCash();
+        int c3 = p3.getCash();
+        int c4 = p4.getCash();
         house.getMove(deck);
         p1.getMove(deck);
-        p2.getMove(deck);
-        p3.getMove(deck);
-        p4.getMove(deck);
-        Player win = new easyBot(-1);
         int w1 = p1.getWager();
+        p2.getMove(deck);
         int w2 = p2.getWager();
+        p3.getMove(deck);
         int w3 = p3.getWager();
+        p4.getMove(deck);
         int w4 = p4.getWager();
+        Player win = new easyBot(-1);
+        if (c2 < w2){
+            p2.clearHand();
+        }
+        if (c3 < w3){
+            p3.clearHand();
+        }
+        if (c4 < w4){
+            p4.clearHand();
+        }
         int totalCash = w1 + w2 + w3 + w4;
-        
         int winner = checkWinner();
         switch (winner){
             case 1: p1.addMoney(totalCash);

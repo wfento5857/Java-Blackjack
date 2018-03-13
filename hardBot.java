@@ -15,9 +15,11 @@ public class hardBot extends Player
         cash = 100;
         id = x;
     }
+
     void clearHand(){
         Hand.clear();
     }   
+
     void getMove(Deck d) {
         boolean check = false;
         if (cash > 0){
@@ -39,13 +41,15 @@ public class hardBot extends Player
         else{System.out.println(id + " OUT OF MONEY");}
         System.out.println(Hand);
     }
+
     public int getCash(){
         return cash;
     }
+
     public int getId(){
         return id;
     }
-    
+
     int getHandValue() {
         int fin = 0;
         for (int i = 0; i < Hand.size(); i++){
@@ -67,7 +71,7 @@ public class hardBot extends Player
             wager = cash;
             cash -= wager;
         }
-        return wager + 5;;
+        return wager + 5;
     }
 
     void addMoney(int amt) {

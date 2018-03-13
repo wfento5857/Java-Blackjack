@@ -46,28 +46,30 @@ public class easyBot extends Player
         }
         return fin;
     }
+
     public int getCash(){
         return cash;
     }
+
     public int getId(){
         return id;
     }
+
     void addCard(Card c){
         Hand.add(c);
     }
+
     void clearHand(){
         Hand.clear();
     }
+
     int getWager(){
-        int wager = 25;
-        if (wager+5 >= cash){
-            cash -= wager;
-        }
-        else if (wager+5 < cash){
+        int wager = 30;
+        if (cash <= wager){
             wager = cash;
-            cash -= wager;
         }
-        return wager + 5;
+        
+        return wager;
     }
 
     void addMoney(int amt){
