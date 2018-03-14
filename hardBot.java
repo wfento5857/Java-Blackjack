@@ -64,14 +64,10 @@ public class hardBot extends Player
 
     int getWager() {
         int wager = 10;
-        if (wager+5 >= cash){
-            cash -= wager;
-        }
-        else if (wager+5 < cash){
+        if (cash <= wager){
             wager = cash;
-            cash -= wager;
         }
-        return wager + 5;
+        return wager;
     }
 
     void addMoney(int amt) {
