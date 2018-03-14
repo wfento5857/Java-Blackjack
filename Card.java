@@ -5,6 +5,7 @@
  * @author (your name)
  * @version (a version number or a date)
  */
+import java.util.Scanner;
 public class Card
 {
     // instance variables - replace the example below with your own
@@ -24,6 +25,7 @@ public class Card
     public int convert(){
         int fin = -1;
         String f = faces[face];
+        Scanner input = new Scanner(System.in);
         // switch(f){
             // case "Ace": fin = 11;
             // case "King": fin = 10;
@@ -39,7 +41,23 @@ public class Card
             // case "Three": fin = 3;
             // case "Two": fin = 2;
         // }
-        if (f.equals("Ace")) fin = 11;
+        if (f.equals("Ace")) {
+            System.out.println("Ace 1 or 11?");
+            boolean x = true;
+            while (x){
+                if (input.nextInt() == 1){
+                    fin = 1;
+                    x = false;
+                }
+                else if (input.nextInt() == 11){
+                    fin = 11;
+                    x = false;
+                }
+                else{
+                    System.out.println("input 1 or 11 plz");
+                }
+            }
+        }
         else if (f.equals("King") || f.equals("Queen") || f.equals("Jack") || f.equals("Ten")) fin = 10;
         else if (f.equals("Nine")) fin = 9;
         else if (f.equals("Eight")) fin = 8;

@@ -6,10 +6,11 @@
  * @version (a version number or a date)
  */
 import java.util.*;
+
 public class easyBot extends Player
 {
     public ArrayList<Card> Hand;
-    public int cash, id;
+    public int cash, id, handValue;
 
     public easyBot(int x){
         Hand = new ArrayList<Card>();
@@ -19,19 +20,23 @@ public class easyBot extends Player
 
     void getMove(Deck d){
         boolean check = false;
+        int heck = 0;
+        for (int i = 0; i < Hand.size(); i++){
+            handValue += Hand.get(i).convert();
+        }
         if (cash > 0){
             while (!check){
-                int handValue = getHandValue();
                 if (handValue < 21){
                     Card c = d.drawRandCard();
                     Hand.add(c);
+                    handValue += c.convert();
                 }
                 else if (handValue == 21){
                     check = true;
                 }
                 else if (handValue > 21){
-                    Hand.clear();
                     check = true;
+                    Hand.clear();
                 }
             }
         }
@@ -40,11 +45,7 @@ public class easyBot extends Player
     }
 
     int getHandValue() {
-        int fin = 0;
-        for (int i = 0; i < Hand.size(); i++){
-            fin += Hand.get(i).convert();
-        }
-        return fin;
+        return handValue;
     }
 
     public int getCash(){
@@ -68,7 +69,7 @@ public class easyBot extends Player
         if (cash <= wager){
             wager = cash;
         }
-        
+
         return wager;
     }
 
