@@ -21,7 +21,9 @@ public class Card
         face = face1;
         suit = suit1;
     }
-    
+    public String getFace(){
+        return faces[face];
+    }
     public int convert(){
         int fin = -1;
         String f = faces[face];
@@ -42,21 +44,7 @@ public class Card
             // case "Two": fin = 2;
         // }
         if (f.equals("Ace")) {
-            System.out.println("Ace 1 or 11?");
-            boolean x = true;
-            while (x){
-                if (input.nextInt() == 1){
-                    fin = 1;
-                    x = false;
-                }
-                else if (input.nextInt() == 11){
-                    fin = 11;
-                    x = false;
-                }
-                else{
-                    System.out.println("input 1 or 11 plz");
-                }
-            }
+            fin = 11;
         }
         else if (f.equals("King") || f.equals("Queen") || f.equals("Jack") || f.equals("Ten")) fin = 10;
         else if (f.equals("Nine")) fin = 9;
@@ -69,6 +57,7 @@ public class Card
         else if (f.equals("Two")) fin = 2;
         return fin;
     }
+    
     
     /**
      * An example of a method - replace this comment with your own

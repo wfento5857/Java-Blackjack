@@ -20,7 +20,7 @@ public class easyBot extends Player
 
     void getMove(Deck d){
         boolean check = false;
-        int heck = 0;
+        int ch = 0;
         for (int i = 0; i < Hand.size(); i++){
             handValue += Hand.get(i).convert();
         }
@@ -34,9 +34,20 @@ public class easyBot extends Player
                 else if (handValue == 21){
                     check = true;
                 }
-                else if (handValue > 21){
-                    check = true;
-                    Hand.clear();
+                else if (handValue > 21 ){
+                    String faceVal;
+                    if (ch > 0){
+                        for (Card g : Hand){
+                            if (g.getFace().contains("Ace")){
+                                handValue -= 10;
+                                ch++;
+                            }
+                        }
+                    }
+                    else if (handValue > 21){
+                        check = true;
+                        clearHand();
+                    }
                 }
             }
         }
@@ -55,12 +66,13 @@ public class easyBot extends Player
     public int getId(){
         return id;
     }
-
+    
     void addCard(Card c){
         Hand.add(c);
     }
 
     void clearHand(){
+        handValue = 0;
         Hand.clear();
     }
 
