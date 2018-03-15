@@ -77,6 +77,19 @@ public class Blackjack
             case 2: p2.addMoney(totalCash);
             case 3: p3.addMoney(totalCash);
             case 4: p4.addMoney(totalCash);
+            case -1: 
+                if (p1.getHandValue() > 0){
+                    p1.addMoney(w1);
+                }
+                if (p2.getHandValue() > 0){
+                    p2.addMoney(w2);
+                }
+                if (p3.getHandValue() > 0){
+                    p3.addMoney(w3);
+                }
+                if (p4.getHandValue() > 0){
+                    p4.addMoney(w4);
+                }
         }
         return winner;
     }
@@ -97,6 +110,8 @@ public class Blackjack
     }
 
     public static void main (String args[]){
+        System.out.println("This is a one player game.");
+        System.out.println("If your hand is empty after the winner is displayed, then that means that you busted.");
         System.out.println("Input: \n 1 for easy \n 2 for medium \n 3 for hard");
         boolean check = false;
         Scanner input = new Scanner(System.in);
